@@ -439,11 +439,6 @@
               <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\i2c.c</FilePath>
             </File>
             <File>
-              <FileName>systick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\systick.c</FilePath>
-            </File>
-            <File>
               <FileName>timer_a.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\timer_a.c</FilePath>
@@ -469,26 +464,6 @@
               <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\wdt_a.c</FilePath>
             </File>
             <File>
-              <FileName>aes256.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\aes256.c</FilePath>
-            </File>
-            <File>
-              <FileName>comp_e.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\comp_e.c</FilePath>
-            </File>
-            <File>
-              <FileName>cpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\cpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>crc32.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\crc32.c</FilePath>
-            </File>
-            <File>
               <FileName>flash_a.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\flash_a.c</FilePath>
@@ -497,56 +472,6 @@
               <FileName>interrupt.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\interrupt.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd_f.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\lcd_f.c</FilePath>
-            </File>
-            <File>
-              <FileName>mpu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\mpu.c</FilePath>
-            </File>
-            <File>
-              <FileName>pmap.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\pmap.c</FilePath>
-            </File>
-            <File>
-              <FileName>pss.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\pss.c</FilePath>
-            </File>
-            <File>
-              <FileName>ref_a.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\ref_a.c</FilePath>
-            </File>
-            <File>
-              <FileName>reset.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\reset.c</FilePath>
-            </File>
-            <File>
-              <FileName>rtc_c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\rtc_c.c</FilePath>
-            </File>
-            <File>
-              <FileName>spi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\spi.c</FilePath>
-            </File>
-            <File>
-              <FileName>sysctl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\sysctl.c</FilePath>
-            </File>
-            <File>
-              <FileName>sysctl_a.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Drivers\ti\devices\msp432p4xx\driverlib\sysctl_a.c</FilePath>
             </File>
             <File>
               <FileName>timer32.c</FileName>
@@ -582,6 +507,11 @@
               <FileName>usart2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Hardware\usart2.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\tim32.c</FilePath>
             </File>
           </Files>
         </Group>

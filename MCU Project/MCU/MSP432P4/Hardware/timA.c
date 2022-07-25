@@ -43,10 +43,10 @@ void TimA2_Cap_Init(uint16_t psc)
 
     /* 定时器配置参数*/
     Timer_A_ContinuousModeConfig continuousModeConfig = {
-        TIMER_A_CLOCKSOURCE_SMCLK,     // SMCLK Clock Source
-        psc,                           // SMCLK/psc = ?MHz
-        TIMER_A_TAIE_INTERRUPT_ENABLE, // 开启定时器溢出中断
-        TIMER_A_DO_CLEAR               // Clear Counter
+        TIMER_A_CLOCKSOURCE_SMCLK,      // SMCLK Clock Source
+        psc,                            // SMCLK/psc = ?MHz
+        TIMER_A_TAIE_INTERRUPT_DISABLE, // 开启定时器溢出中断
+        TIMER_A_DO_CLEAR                // Clear Counter
     };
     // 3.将定时器初始化为连续计数模式
     MAP_Timer_A_configureContinuousMode(SIGNAL_CAPTURE_TIMER, &continuousModeConfig);
@@ -67,9 +67,9 @@ void TimA2_Cap_Init(uint16_t psc)
     // MAP_Timer_A_startCounter(SIGNAL_CAPTURE_TIMER, TIMER_A_CONTINUOUS_MODE);
 
     // 7.清除中断标志位
-    MAP_Timer_A_clearInterruptFlag(SIGNAL_CAPTURE_TIMER);                                          //清除定时器溢出中断标志位
+    // MAP_Timer_A_clearInterruptFlag(SIGNAL_CAPTURE_TIMER);                                          //清除定时器溢出中断标志位
+    // BITBAND_PERI(TIMER_A_CMSIS(SIGNAL_CAPTURE_TIMER)->CCTL[(SIGNAL_CAPTURE_TIMER_REGISTER >> 1) - 1], TIMER_A_CCTLN_COV_OFS) = 0;
     MAP_Timer_A_clearCaptureCompareInterrupt(SIGNAL_CAPTURE_TIMER, SIGNAL_CAPTURE_TIMER_REGISTER); //清除 CCR1 更新中断标志位
-    BITBAND_PERI(TIMER_A_CMSIS(SIGNAL_CAPTURE_TIMER)->CCTL[(SIGNAL_CAPTURE_TIMER_REGISTER >> 1) - 1], TIMER_A_CCTLN_COV_OFS) = 0;
 
     // 8.开启定时器端口中断
     MAP_Interrupt_enableInterrupt(INT_TA2_N); //开启定时器A2端口中断

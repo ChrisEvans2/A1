@@ -45,9 +45,10 @@ void BSP_Sample_Timer_Init(void)
 {
     log_detail("Sample Timer Init...\r\n");
 #ifdef __MSP432P401R__
-    TimA2_Cap_Init(TIMER_SOURCE_DIV);                              // 第8讲 定时器捕获 （过零比较器采频率）
-    TimA0_Base_Init(TIMER_SOURCE_FREQ / 500000, TIMER_SOURCE_DIV); // 第8讲 定时器配置 （ADC触发时钟源 fs）
-#else
+    Tim32_0_Int_Init(0xFFFFFFFF, TIMER32_PRESCALER_1);
+    TimA2_Cap_Init(TIMER_A_CLOCKSOURCE_DIVIDER_1);                              // 第8讲 定时器捕获 （过零比较器采频率）
+    TimA0_Base_Init(TIMER_SOURCE_FREQ / 500000, TIMER_A_CLOCKSOURCE_DIVIDER_1); // 第8讲 定时器配置 （ADC触发时钟源 fs）
+    #else
     MX_TIM2_Init(); // 第8讲 定时器捕获 （过零比较器采频率）
     MX_TIM3_Init(); // 第8讲 定时器配置 （ADC触发时钟源 fs）
 #endif

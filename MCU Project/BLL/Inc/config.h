@@ -21,8 +21,7 @@
 #endif
 
 #if defined __MSP432P401R__
-#define TIMER_SOURCE_DIV TIMER_A_CLOCKSOURCE_DIVIDER_1 // 定时器时钟源分频
-#define TIMER_SOURCE_FREQ (48000000u / TIMER_SOURCE_DIV)
+#define TIMER_SOURCE_FREQ 48000000u
 #define SIGNAL_SAMPLE_FREQ_MAX 1000000u
 #define ADC_MAX 16384u
 #define ADC_RF_V_MV 2500u
@@ -42,6 +41,7 @@
 #endif
 
 #if defined __MSP432P401R__
+#include "tim32.h"
 #include "timA.h"
 #include "delay.h"
 #include "adc.h"
