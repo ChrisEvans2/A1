@@ -1,6 +1,5 @@
 #include "bsp_it.h"
 #include "bsp_operation.h"
-#define CAP_TIMES 4
 
 static vu32 Cap_Val[2] = {0};           // 捕获值
 static vu8 CapTimer_SyncState = 0;      // 捕获信号同步状态
@@ -27,7 +26,7 @@ void TA2_N_IRQHandler(void)
     }
     else if (CapTimer_SyncState >= CAP_TIMES)
     {
-        BSP_Signal_Avrg_Cap_Val = (0xFFFFFFFF - Timer32_getValue(TIMER32_0_BASE)) / CAP_TIMES;
+        BSP_Signal_Avrg_Cap_Val = (0xFFFFFFFF - Timer32_getValue(TIMER32_0_BASE)) / (CAP_TIMES - 1);
 
         BSP_Timer_Stop(Signal_Capture_Timer);
         CapTimer_SyncState = 0;
