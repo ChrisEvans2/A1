@@ -18,6 +18,20 @@
 #warning...
 #endif
 
+typedef enum
+{
+    WithoutWinFun, // 不加窗
+    Boxcar,        // 矩形窗（不加窗）
+    Triang,        // 三角窗
+    Hanning,       // 汉明窗
+    Hamming,       // 海明窗
+    Blackman,      // 布莱克曼窗
+    Flattop,       // 平顶窗
+} Window_Function_Type;
+
+/* 窗函数初始化 */
+void Window_Function_Init(Window_Function_Type WinFun, u16 Length);
+
 /* 找出最小值位置 */
 u16 Min_Float(float Mag[], u16 len);
 
