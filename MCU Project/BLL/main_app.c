@@ -35,7 +35,13 @@
  * /RNA_2021_Game_A/Doc/AnalyzeData 表格里
  * 有多个分表，ADC采样点数不同请粘贴到对应位置
  *
- * ******************************************/
+ * ******************************************
+ *
+ * 在本程序设定中，理论上采样信号长度刚好为
+ * 周期信号长度的整数倍，合理没有频谱泄露,
+ * 但实际情况未测试，于是添加了窗函数给大家使用。
+ *
+ */
 
 #include "config.h"
 #include "bsp_init.h"
@@ -52,7 +58,7 @@ float THDx = 0.0f;           // 失真度测量值
 float NormalizedAm[4] = {0}; // 归一化幅值：2-5次谐波
 float Phase[5] = {0};        // 各分量相位（占位，还没用上）
 
-u16 Fx_Vpp[5] = {0};                    // 幅值(uV)
+u16 Fx_Vpp[5] = {0};                        // 幅值
 float Amplitude_Data[ADC_SAMPLING_NUM / 2]; // 各个频率分量幅值(FFT后)
 
 int main(void)
@@ -63,6 +69,11 @@ int main(void)
     u16 i = 1;
     HAL_Init();           // (Stm32HAL初始化)
     SystemClock_Config(); // 第3讲 时钟配置（48M）
+
+    // 窗函数初始化 目前支持类型有：
+    // 矩形窗（不加窗），三角窗，汉明窗，海明窗，布莱克曼窗，平顶窗；
+    // 在没有频谱泄露的情况下，不建议加窗，加窗会导致幅值失真，需要矫正；实际情况请按需选择。
+    Window_Function_Init(Triang, ADC_SAMPLING_NUM); // Boxcar, Triang, Hanning, Hamming, Blackman, Flattop
 
     BSP_GPIO_Init();    // 第2讲 GPIO配置
     BSP_Uart_PC_Init(); // 第7讲 串口配置（调试）
