@@ -52,21 +52,18 @@ void Bluetooth_SendDate_To_Phone(float *NormalizedAm, float THDx, u16 *WaveData)
     log_detail("Bluetooth Sending Date To Phone...\r\n");
 
     /* 发送THD */
-    BSP_Bluetooth_SendByte(((uint16_t)(THDx * 100)) >> 8);
-    BSP_Bluetooth_SendByte(((uint16_t)(THDx * 100)) & 0xFF);
+    BSP_Bluetooth_Send_HalfWord(THDx * 100);
 
     /* 发送拟合值 */
     for (i = 0; i < 128; ++i)
     {
-        BSP_Bluetooth_SendByte(WaveData[i] >> 8);
-        BSP_Bluetooth_SendByte(WaveData[i] & 0xFF);
+        BSP_Bluetooth_Send_HalfWord(WaveData[i]);
     }
 
     /* 发送归一化幅值 */
     for (i = 0; i < 4; ++i)
     {
-        BSP_Bluetooth_SendByte(((uint16_t)(NormalizedAm[i] * 100)) >> 8);
-        BSP_Bluetooth_SendByte(((uint16_t)(NormalizedAm[i] * 100)) & 0xFF);
+        BSP_Bluetooth_Send_HalfWord(NormalizedAm[i] * 100);
     }
     log_detail("Bluetooth Sending Completed!\r\n");
     LED_W_Off();

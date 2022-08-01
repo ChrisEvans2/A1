@@ -121,7 +121,7 @@ void BSP_Timer_Stop(BSP_Timer Timer)
     }
 }
 
-void BSP_Bluetooth_SendByte(u8 Data)
+void BSP_Bluetooth_Send_Byte(u8 Data)
 {
 #if defined __MSP432P401R__
     MAP_UART_transmitData(BLUETOOTH_UART, Data);
@@ -130,6 +130,12 @@ void BSP_Bluetooth_SendByte(u8 Data)
 #else
 #error Please Transplant Function: BSP_Bluetooth_SendByte();
 #endif
+}
+
+void BSP_Bluetooth_Send_HalfWord(u16 Data)
+{
+    BSP_Bluetooth_Send_Byte(Data >> 8);
+    BSP_Bluetooth_Send_Byte(Data & 0xFF);
 }
 
 #ifdef __MSP432P401R__
