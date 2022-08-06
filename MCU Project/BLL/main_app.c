@@ -1,11 +1,12 @@
-/*******************************************
-// 2021 电赛A题
-// Bilibili：m-RNA
-// E-mail:m-RNA@qq.com
-// 创建日期:2022/07/11
-*******************************************/
-
-/******************************************
+/*
+ * @Author: m-RNA m-RNA@qq.com
+ * @Date: 2022-07-27 00:35:48
+ * @LastEditors: m-RNA m-RNA@qq.com
+ * @LastEditTime: 2022-08-07 00:36:41
+ * @FilePath: \MDK-ARMe:\RNA_2021_Game_A\MCU Project\BLL\main_app.c
+ * @Description:
+ * 2021 电赛A题 新工程 主函数
+ *
  * 使用工程提示：Stm32工程支持Keil仿真
  *
  * ADC采样点数、采样频率倍数、仿真信号输入等等
@@ -49,6 +50,7 @@
 #include "log.h"
 #include "my_math.h"
 #include "oled_interface.h"
+#include "windowfunction.h"
 
 u32 Signal_Captured_Value;                   // 滞回比较器 定时器捕获值
 u16 Signal_ADC_Data[ADC_SAMPLING_NUM];       // 信号采样ADC数据
@@ -73,7 +75,7 @@ int main(void)
     // 窗函数初始化 目前支持类型有：
     // 矩形窗（不加窗），三角窗，汉明窗，海明窗，布莱克曼窗，平顶窗；
     // 在没有频谱泄露的情况下，不建议加窗，加窗会导致幅值失真，需要矫正；实际情况请按需选择。
-    Window_Function_Init(Triang, ADC_SAMPLING_NUM); // Boxcar, Triang, Hanning, Hamming, Blackman, Flattop
+    Window_Function_Init(WithoutWinFun, ADC_SAMPLING_NUM); // Boxcar, Triang, Hanning, Hamming, Blackman, Flattop
 
     BSP_GPIO_Init();    // 第2讲 GPIO配置
     BSP_Uart_PC_Init(); // 第7讲 串口配置（调试）

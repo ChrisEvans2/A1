@@ -1,3 +1,11 @@
+/*
+ * @Author: m-RNA m-RNA@qq.com
+ * @Date: 2022-07-13 00:38:44
+ * @LastEditors: m-RNA m-RNA@qq.com
+ * @LastEditTime: 2022-08-07 00:40:30
+ * @FilePath: \MDK-ARMe:\RNA_2021_Game_A\MCU Project\BLL\Inc\my_math.h
+ * @Description: 我的相关算法文件
+ */
 #ifndef __MY_MATH
 #define __MY_MATH
 #include "config.h"
@@ -17,20 +25,6 @@
 #else
 #warning...
 #endif
-
-typedef enum
-{
-    WithoutWinFun, // 不加窗
-    Boxcar,        // 矩形窗（不加窗）
-    Triang,        // 三角窗
-    Hanning,       // 汉明窗
-    Hamming,       // 海明窗
-    Blackman,      // 布莱克曼窗
-    Flattop,       // 平顶窗
-} Window_Function_Type;
-
-/* 窗函数初始化 */
-void Window_Function_Init(Window_Function_Type WinFun, u16 Length);
 
 /* 找出最小值位置 */
 u16 Min_Float(float Mag[], u16 len);

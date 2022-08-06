@@ -755,6 +755,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\BLL\simulation.c</FilePath>
             </File>
+            <File>
+              <FileName>windowfunction.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\BLL\windowfunction.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
